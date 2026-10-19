@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andeulin.github.io/ii-dlya-dela-moskva/sitemap.xml
