@@ -193,10 +193,16 @@ a.card:hover{border-color:var(--ink);transform:translateY(-2px);color:var(--ink)
 .qa-mini p{margin:0;font-size:15px;color:var(--ink-2)}
 
 /* Ведущий */
-.lead-card{display:grid;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r-panel);padding:22px}
-@media (min-width:800px){.lead-card{grid-template-columns:120px 1fr;padding:28px}}
-.ava{width:96px;height:96px;border-radius:50%;background:var(--paper-2);display:grid;place-items:center;font-size:30px;font-weight:700;color:var(--ink-2);border:1px solid var(--line)}
-@media (min-width:800px){.ava{width:120px;height:120px}}
+.leads{display:grid;gap:16px}
+@media (min-width:900px){.leads{grid-template-columns:1fr 1fr}}
+.lead-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r-panel);padding:22px}
+@media (min-width:800px){.lead-card{padding:28px}}
+.lead-top{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.lead-top h3{margin:0 0 4px}
+.ava{width:88px;height:88px;border-radius:50%;object-fit:cover;flex:none;background:var(--paper-2);border:1px solid var(--line)}
+.role{display:inline-block;font-size:14px;font-weight:700;color:var(--ok)}
+.lead-card p{margin:0}
+.lead-links{margin-top:12px!important;font-size:15px}
 
 /* Цена */
 .price{background:var(--dark);color:var(--dark-ink);border-radius:var(--r-panel);padding:24px 20px;display:grid;gap:24px}

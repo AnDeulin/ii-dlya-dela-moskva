@@ -27,11 +27,19 @@
     }
   }
 
+  /* ---------- Откуда пришёл человек: ?from=метка в ссылке партнёра, добавляется в текст сообщения ---------- */
+  var SRC = "";
+  try {
+    var mm = location.search.match(/[?&]from=([A-Za-z0-9_-]{1,30})/);
+    if (mm) { SRC = mm[1]; sessionStorage.setItem("iidd_from", SRC); } else { SRC = sessionStorage.getItem("iidd_from") || ""; }
+  } catch (e) {}
+
   /* ---------- Окно «Написать» ---------- */
   var bg = $(".sheet-bg"), sheet = $(".sheet"), currentText = "", lastFocus = null;
   function openSheet(text, where) {
     if (!sheet) return;
     currentText = text || CFG.defaultText || "Здравствуйте! Вопрос про курс ИИ для дела.";
+    if (SRC) currentText = /^[^!]{1,40}!/.test(currentText) ? currentText.replace(/^([^!]{1,40}!)\s*/, "$1 (ссылка " + SRC + ") ") : "(ссылка " + SRC + ") " + currentText;
     $(".msg", sheet).textContent = currentText;
     $(".js-tg", sheet).href = "https://t.me/" + TG + "?text=" + encodeURIComponent(currentText);
     $(".max-info", sheet).classList.remove("on");
